@@ -1,0 +1,44 @@
+
+Input : 12
+Output : Adam Number
+Explanation: 
+Square of 12 = 144
+Reverse of 12 = 21
+Square of 21 = 441
+Now Square of 12 and square of reverse of 12 are 
+reverse of each other. Therefore 12 is Adam number.
+
+Input : 14
+Output : Not a Adam Number
+
+// code 
+
+#include <stdio.h>
+
+int main()
+{
+    int num,revnum=0,newnum=0;
+    scanf("%d",&num);
+    int sqnum=num*num;
+    while(num>0){
+        int rem=num%10;
+        revnum=revnum*10+rem;
+        num/=10;
+    }
+   int  sqnum2=revnum*revnum;
+    while(sqnum2>0){
+        int rem=sqnum2%10;
+        newnum=newnum*10+rem;
+        sqnum2/=10;
+        
+    }
+    printf("%d %d",sqnum,newnum);
+    if(sqnum==newnum){
+        printf("\nAdam Number");
+    }
+    else{
+        printf("\nNot a Adam Number");
+    }
+    return 0;
+}
+
